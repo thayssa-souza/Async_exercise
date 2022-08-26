@@ -19,11 +19,15 @@ namespace Async_exercise
         private async void button1_Click(object sender, EventArgs e)
         {
            await GetInfosAsync();
-
         }
+
+        private DateTime cronometro = new();
 
         private void frmApp_Load(object sender, EventArgs e)
         {
+            timer1.Interval = 1000;
+            timer1.Start();
+
             listPag.Size = new System.Drawing.Size(100, 100);
             listPag.Location = new System.Drawing.Point(28, 130);
 
@@ -102,11 +106,11 @@ namespace Async_exercise
             lblAgResult.ForeColor = Color.Coral;
             lblAgResult.Text = "Processando...";
             
-            await Task.Delay(TimeSpan.FromMilliseconds(5000));
+            await Task.Delay(TimeSpan.FromSeconds(5));
 
             lblAgResult.ForeColor = Color.Blue;
-            lblAgResult.Text = "Cálculos gerados com sucesso!\n +" +
-                "Tempo total da operação: segundos";
+            lblAgResult.Text = "Cálculos gerados com sucesso!\n" +
+                $"Tempo total da operação: {Text} segundos";
             btnCalcular.Enabled = true;
         }
 
@@ -128,6 +132,12 @@ namespace Async_exercise
 
         private void listBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            cronometro = cronometro.AddSeconds(1);
+            Text = cronometro.ToLongTimeString();
         }
     }
 }

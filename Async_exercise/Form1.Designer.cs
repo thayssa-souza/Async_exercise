@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblFinancas = new System.Windows.Forms.Label();
             this.lblPagamento = new System.Windows.Forms.Label();
             this.lblImpostos = new System.Windows.Forms.Label();
@@ -35,6 +36,7 @@
             this.lblDespesas = new System.Windows.Forms.Label();
             this.btnCalcular = new System.Windows.Forms.Button();
             this.lblAgResult = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // lblFinancas
@@ -108,6 +110,11 @@
             this.lblAgResult.TabIndex = 6;
             this.lblAgResult.Text = "...";
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // frmApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -138,5 +145,6 @@
         private Button btnCalcular;
         private Label lblAgResult;
         private ListBox listaPag;
+        private System.Windows.Forms.Timer timer1;
     }
 }
