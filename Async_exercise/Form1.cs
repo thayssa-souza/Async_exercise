@@ -102,7 +102,7 @@ namespace Async_exercise
             lblAgResult.ForeColor = Color.Coral;
             lblAgResult.Text = "Processando...";
             
-            await Task.Delay(TimeSpan.FromSeconds(5));
+            await Task.Delay(TimeSpan.FromMilliseconds(5000));
 
             lblAgResult.ForeColor = Color.Blue;
             lblAgResult.Text = "Cálculos gerados com sucesso!\n +" +
