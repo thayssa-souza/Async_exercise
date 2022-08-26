@@ -46,7 +46,7 @@ namespace Async_exercise
             await ExibirCalculo();
 
             var folhas = Infos.FolhaPagamentoInfo();
-
+            listPag.Items.Clear();
             foreach (FolhaPagamento itemP in folhas)
             {
                 listPag.Items.Add(itemP.SalarioFunc1);
@@ -61,6 +61,7 @@ namespace Async_exercise
 
 
             var impost = Infos.ImpostosInfos();
+            listaImp.Items.Clear();
             foreach (var itemI in impost)
             {
                 listaImp.Items.Add(itemI.ImpostoPJ);
@@ -74,6 +75,7 @@ namespace Async_exercise
 
 
             var recei = Infos.ReceitasInfo();
+            listaRec.Items.Clear();
             foreach (var itemR in recei)
             {
                 listaRec.Items.Add(itemR.ReceitaMensal);
@@ -87,6 +89,7 @@ namespace Async_exercise
 
 
             var desp = Infos.DespesasInfo();
+            listaDesp.Items.Clear();
             foreach (var itemD in desp)
             {
                 listaDesp.Items.Add(itemD.DespFuncionarios);
@@ -103,12 +106,12 @@ namespace Async_exercise
         public async Task ExibirCalculo()
         {
             btnCalcular.Enabled = false;
-            lblAgResult.ForeColor = Color.Coral;
+            lblAgResult.ForeColor = Color.DarkBlue;
             lblAgResult.Text = "Processando...";
             
             await Task.Delay(TimeSpan.FromSeconds(5));
 
-            lblAgResult.ForeColor = Color.Blue;
+            lblAgResult.ForeColor = Color.DarkMagenta;
             lblAgResult.Text = "Cálculos gerados com sucesso!\n" +
                 $"Tempo total da operação: {Text} segundos";
             btnCalcular.Enabled = true;
